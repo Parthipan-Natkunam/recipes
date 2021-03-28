@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledCard = styled.div`
   padding: 0.5rem;
-  margin: 1.5rem 0.25rem;
+  margin: 1.5rem auto;
   background: #fff;
   display: flex;
   box-shadow: 0px 3px 8px rgb(0 0 0 / 35%), 0px 0px 8px rgb(0 0 0 / 30%),
@@ -12,6 +12,10 @@ const StyledCard = styled.div`
   cursor: pointer;
   flex-wrap: wrap;
   min-width: 150px;
+  max-width: 600px;
+  &:hover {
+    transform: scale(1.05);
+  }
   @media (max-width: 425px) {
     flex-direction: column;
   } ;
@@ -19,10 +23,13 @@ const StyledCard = styled.div`
 
 interface CardProps {
   children: React.ReactNode;
+  clickHandler: (id: string) => void;
 }
 
-const Card: React.FC<CardProps> = ({ children }) => (
-  <StyledCard>{children}</StyledCard>
+const Card: React.FC<CardProps> = ({ children, clickHandler }) => (
+  <StyledCard onClick={clickHandler} role="button">
+    {children}
+  </StyledCard>
 );
 
 export default Card;
