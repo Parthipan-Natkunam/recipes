@@ -12,7 +12,7 @@ const TitleContainer = styled.div`
   }
 `;
 
-const CardTitle = styled.h5`
+const CardTitle = styled.h6`
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
