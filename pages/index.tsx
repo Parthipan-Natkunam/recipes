@@ -15,7 +15,7 @@ export default function Recipes({ recipes }) {
 
   //Could have used the Next Link component but doing this for semantic and  accessibility reasons
   const navigateToDetailsPage = (id: string) => {
-    router.push(`/${id}`);
+    router.push("/[id]", `/${id}`);
   };
 
   return (
