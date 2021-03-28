@@ -2,7 +2,7 @@ import * as React from "react";
 import styled from "styled-components";
 const PageContainer = styled.div`
   padding: 1rem;
-  background: #e0e4df;
+  background: #d3dce0;
   min-height: 100vh;
 `;
 

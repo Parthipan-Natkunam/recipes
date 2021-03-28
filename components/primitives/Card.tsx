@@ -10,7 +10,6 @@ const StyledCard = styled.div`
     -6px 0px 8px rgb(0 0 0 / 15%);
   border-radius: 12px;
   cursor: pointer;
-  flex-wrap: wrap;
   min-width: 150px;
   max-width: 600px;
   &:hover {
