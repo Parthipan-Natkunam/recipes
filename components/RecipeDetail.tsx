@@ -23,7 +23,7 @@ const Detail: React.FC<Recipe> = ({
         </TagsContainer>
       ) : null}
       <TagsContainer>
-        <Tag bg="#6805f5">{calories} Calories</Tag>
+        <Tag bg="#6805f5">{`${calories} Calories`} </Tag>
       </TagsContainer>
       <img src={image} alt={`picture of ${title}`} width="100%" />
       <p>
