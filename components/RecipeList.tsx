@@ -7,11 +7,14 @@ import {
   Image as CardImage,
   Title as CardTitile,
   Loader,
+  PageWideLoader,
   Error,
 } from "./primitives";
 import { GET_ALL_RECIPES } from "../api/queries";
 
 const Recipes: React.FC = () => {
+  const [showTransition, setShowTransition] = React.useState<Boolean>(false);
+
   const { loading, error, data } = useQuery(GET_ALL_RECIPES, {
     variables: { preview: false },
   });
@@ -19,10 +22,12 @@ const Recipes: React.FC = () => {
   const router = useRouter();
 
   const navigateToDetailsPage = (id: string) => {
+    setShowTransition(true);
     router.push("/[id]", `/${id}`);
   };
 
   if (loading) return <Loader />;
+
   if (error)
     return (
       <Error
@@ -40,16 +45,19 @@ const Recipes: React.FC = () => {
 
   if (hasData) {
     return (
-      <h1>
-        {recipes.map(({ sys: { id }, title, photo: { url: image } }) => {
-          return (
-            <Card key={id} clickHandler={() => navigateToDetailsPage(id)}>
-              <CardImage src={image} alt={`picture of ${title}`} />
-              <CardTitile text={title} />
-            </Card>
-          );
-        })}
-      </h1>
+      <>
+        <h1>
+          {recipes.map(({ sys: { id }, title, photo: { url: image } }) => {
+            return (
+              <Card key={id} clickHandler={() => navigateToDetailsPage(id)}>
+                <CardImage src={image} alt={`picture of ${title}`} />
+                <CardTitile text={title} />
+              </Card>
+            );
+          })}
+        </h1>
+        {showTransition && <PageWideLoader />}
+      </>
     );
   }
 
