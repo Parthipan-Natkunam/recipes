@@ -46,6 +46,16 @@ yarn dev
 
 - Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Steps to Run Unit Tests
+
+```bash
+npm run test:unit
+#or
+yarn test:unit
+```
+
+The script `test:unit-watch` can be used to run the unit tests in watch mode.
+
 ## Application Screenshots
 
 ##### Recipes List View
