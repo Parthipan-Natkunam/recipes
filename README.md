@@ -71,7 +71,7 @@ The script `test:unit-watch` can be used to run the unit tests in watch mode.
 The application has 2 routes:
 
 1. `List View` : The index route - `/` (localhost:300/) => lists all recipes with image and title in a card format.
-2. `Details View` : The details route - `/<recipeId>` (localhost:300/<recipeId>) => provide some detailed information about a specific recipe.
+2. `Details View` : The details route - `/<recipeId>` (localhost:300/recipeId) => provide some detailed information about a specific recipe.
 
 #### Rendering Strategy
 
