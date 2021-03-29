@@ -2,7 +2,13 @@ import * as React from "react";
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 
-import { Card, Image as CardImage, Title as CardTitile } from "./primitives";
+import {
+  Card,
+  Image as CardImage,
+  Title as CardTitile,
+  Loader,
+  Error,
+} from "./primitives";
 import { GET_ALL_RECIPES } from "../api/queries";
 
 const Recipes: React.FC = () => {
@@ -16,24 +22,39 @@ const Recipes: React.FC = () => {
     router.push("/[id]", `/${id}`);
   };
 
-  if (loading) return <h1>Loading...</h1>;
-  if (error) return <h1>Errored...</h1>;
+  if (loading) return <Loader />;
+  if (error)
+    return (
+      <Error
+        title="Oops! Something Went Wrong"
+        description="Something went wrong. Please try reloading this page"
+        cta={{ text: "Reload page", action: router.reload }}
+      />
+    );
 
-  const {
+  let {
     recipeCollection: { items: recipes },
   } = data;
 
+  const hasData = recipes && recipes.length > 0;
+
+  if (hasData) {
+    return (
+      <h1>
+        {recipes.map(({ sys: { id }, title, photo: { url: image } }) => {
+          return (
+            <Card key={id} clickHandler={() => navigateToDetailsPage(id)}>
+              <CardImage src={image} alt={`picture of ${title}`} />
+              <CardTitile text={title} />
+            </Card>
+          );
+        })}
+      </h1>
+    );
+  }
+
   return (
-    <h1>
-      {recipes.map(({ sys: { id }, title, photo: { url: image } }) => {
-        return (
-          <Card key={id} clickHandler={() => navigateToDetailsPage(id)}>
-            <CardImage src={image} alt={`picture of ${title}`} />
-            <CardTitile text={title} />
-          </Card>
-        );
-      })}
-    </h1>
+    <Error title=" No Data" description="No recipes available to display" />
   );
 };
 
