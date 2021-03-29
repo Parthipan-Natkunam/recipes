@@ -21,7 +21,13 @@ interface ImageProps {
 }
 
 const Image: React.FC<ImageProps> = ({ src, alt }) => {
-  return <CardImage src={src} alt={`picture of ${alt}`} />;
+  return (
+    <CardImage
+      src={src}
+      alt={`picture of ${alt}`}
+      data-testid="$recipe-app-image"
+    />
+  );
 };
 
 export default Image;
