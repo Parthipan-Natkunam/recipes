@@ -23,10 +23,14 @@ interface ErrorProps {
 
 const ErrorIndicator: React.FC<ErrorProps> = ({ title, description, cta }) => {
   return (
-    <div>
-      <h2>{title}</h2>
-      <p>{description}</p>
-      {cta && <CTAButton onClick={cta.action}>{cta.text}</CTAButton>}
+    <div data-testid="$recipe-app-error">
+      <h2 data-testid="$recipe-app-error-title">{title}</h2>
+      <p data-testid="$recipe-app-error-description">{description}</p>
+      {cta && (
+        <CTAButton onClick={cta.action} data-testid="$recipe-app-error-cta">
+          {cta.text}
+        </CTAButton>
+      )}
     </div>
   );
 };
