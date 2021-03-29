@@ -10,7 +10,7 @@ export default function RecipesPage() {
         <title>Recipes</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <PageHeader title="Recipes" />
+      <PageHeader title="Recipes" hasUnderline />
       <Recipes />
     </PageContainer>
   );

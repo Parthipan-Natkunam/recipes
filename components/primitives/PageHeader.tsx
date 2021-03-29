@@ -14,10 +14,12 @@ interface PageHeaderProps {
   hasUnderline?: boolean;
 }
 
-const PageHeader = ({ title, hasUnderline = true }) => (
+const PageHeader = ({ title, hasUnderline }) => (
   <>
-    <Heading>{title}</Heading>
-    {hasUnderline && <HeadingUnderline />}
+    <Heading data-testid="$recipe-app-page-title">{title}</Heading>
+    {hasUnderline && (
+      <HeadingUnderline data-testid="$recipe-app-page-title-underline" />
+    )}
   </>
 );
 
