@@ -26,7 +26,11 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ children, clickHandler }) => (
-  <StyledCard onClick={clickHandler} role="button">
+  <StyledCard
+    onClick={clickHandler}
+    role="button"
+    data-testid="$recipe-app-card"
+  >
     {children}
   </StyledCard>
 );
