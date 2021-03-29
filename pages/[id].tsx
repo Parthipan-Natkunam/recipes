@@ -39,7 +39,7 @@ export default function RecipeDetails({ recipe, error }) {
         <title>Recipe Detail</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <BackLink link="/" />
+      <BackLink link="/" as="/" text="<< Back to recipes list" />
       <RecipeDetail {...recipe} />
     </PageContainer>
   );
