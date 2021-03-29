@@ -2,10 +2,15 @@
   "name": "recipes",
   "version": "0.1.0",
   "private": true,
+  "jest": {
+    "verbose": true
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test:unit": "jest",
+    "test:unit-watch": "jest --watch"
   },
   "dependencies": {
     "@apollo/client": "^3.3.13",
@@ -18,9 +23,16 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
+    "@testing-library/dom": "^7.30.1",
+    "@testing-library/jest-dom": "^5.11.10",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^13.0.16",
+    "@types/jest": "^26.0.22",
     "@types/node": "^14.14.37",
     "@types/react": "^17.0.3",
+    "babel-jest": "^26.6.3",
     "dotenv-load": "^2.0.0",
+    "jest": "^26.6.3",
     "next-env": "^1.1.1",
     "typescript": "^4.2.3"
   }
