@@ -25,8 +25,8 @@ interface TitleProps {
 }
 
 const Title: React.FC<TitleProps> = ({ text }) => (
-  <TitleContainer>
-    <CardTitle>{text}</CardTitle>
+  <TitleContainer data-testid="$recipe-app-title-container">
+    <CardTitle data-testid="$recipe-app-title">{text}</CardTitle>
   </TitleContainer>
 );
 
